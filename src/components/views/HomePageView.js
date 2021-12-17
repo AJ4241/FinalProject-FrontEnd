@@ -14,18 +14,18 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
     textAlign: 'left',
     fontType: 'bold',
-    fontFamily: 'Courier, sans-serif', 
+    fontFamily: 'Helvetica, sans-serif', 
     fontSize: '35px', 
-    color: '#CDDC39'
+    color: '#FFFFFF'
   },
   appBar:{
-    backgroundColor: '#11153e',
+    backgroundColor: '#eab676',
     shadows: ['none'],
   },
   greeting:{
     display: 'flex',
     justifyContent: 'center',
-    backgroundColor: 'white',
+    color: 'white',
     width: "50%",
     margin: "auto",
   },
@@ -42,7 +42,7 @@ const HomePageView = () => {
       <AppBar position="static" elevation={0} className={classes.appBar}>
         <Toolbar>
           <Typography variant="h6" className={classes.title} color="inherit" >
-            CRUD App
+            CampusHub
           </Typography>
 
           <Link className={classes.links} to={'/campuses'} >

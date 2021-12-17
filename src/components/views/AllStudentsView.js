@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const AllStudentsView = (props) => {
   const {students, deleteStudent} = props;
-
+  <h1>Students</h1>
   if (!students.length) {
     return (
     <div>
