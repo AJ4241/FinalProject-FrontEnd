@@ -112,7 +112,7 @@ const StudentView = (props) => {
           {"created at: " + student.createdAt} <br/>
           {"updated at: " + student.updatedAt} <br/>
         </h4>
-        <button> onClick={() => deleteStudent(student.id)}>Delete Student</button>
+        <button onClick={() => deleteStudent(student.id)}>Delete Student</button>
       </div>
     );
   }
