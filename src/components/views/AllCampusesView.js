@@ -21,7 +21,12 @@ const useStyles = makeStyles( () => ({
     fontFamily: 'Helvetica, sans-serif', 
     fontSize: '35px', 
     color: '#FFFFFF',
-    textAlign: 'left'
+    textDecoration: 'none',
+    transition: '0.3s',
+    textAlign: 'left',
+    '&:hover': {
+      color: "#063970"
+    }
   },
   appBar:{
     backgroundColor: '#eab676',
@@ -34,7 +39,33 @@ const useStyles = makeStyles( () => ({
     borderRadius: '5px 5px 0px 0px',
     padding: '3px'
   },
-  
+  text:{
+    textDecoration: 'none', 
+    color: '#FFFFFF',
+    fontSize: '20px',
+    marginLeft: '80px',
+    '&:hover': {
+      color: "#eab676"
+    }
+  },
+  links:{
+    textDecoration: 'none',
+  },
+  button:{
+    marginLeft: '80px',
+    marginTop: '20px',
+    background: '#Adadad',
+    padding: '8px 24px',
+    'border-radius': '9px',
+    color: 'black',
+    border: '3px solid #3f3f3f',
+    transition: '0.3s',
+    cursor: 'pointer',
+    '&:hover': {
+      background: "#eab676",
+      color: 'white'
+    }
+  }
 }));
 
 const AllCampusesView = (props) => {
@@ -69,15 +100,14 @@ const AllCampusesView = (props) => {
       </AppBar>
 
       {props.allCampuses.map((campus) => (
-        <div key={campus.id}>
-          <Link to={`/campus/${campus.id}`}>
-            <h1>{campus.name}</h1>
+        <ul key={campus.id} className={classes.text}>
+          <Link to={`/campus/${campus.id}`} className={classes.text}>
+            <li>{campus.name}</li>
           </Link>
-          <p>{campus.description}</p>
-        </div>
+        </ul>
       ))}
       <Link to={`/newcampus`}>
-        <button>Add New Campus</button>
+        <button className={classes.button}>Add New Campus</button>
       </Link>
     </div>
   );
