@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles( () => ({
   formContainer:{  
+    marginTop: '20px',
     width: '500px',
     backgroundColor: '#f0f0f5',
     borderRadius: '5px',
@@ -20,7 +21,13 @@ const useStyles = makeStyles( () => ({
     fontType: 'bold',
     fontFamily: 'Helvetica, sans-serif', 
     fontSize: '35px', 
-    color: '#FFFFFF'
+    color: '#FFFFFF',
+    textDecoration: 'none',
+    transition: '0.3s',
+    textAlign: 'left',
+    '&:hover': {
+      color: "#063970"
+    }
   },
   appBar:{
     backgroundColor: '#eab676',
@@ -33,9 +40,10 @@ const useStyles = makeStyles( () => ({
     borderRadius: '5px 5px 0px 0px',
     padding: '3px'
   },
-  
+  links:{
+    textDecoration: 'none',
+  },
 }));
-
 const NewCampusView = (props) => {
   const {handleChange, handleSubmit } = props;
   const classes = useStyles();
