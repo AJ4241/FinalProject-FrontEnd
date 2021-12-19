@@ -20,7 +20,13 @@ const useStyles = makeStyles( () => ({
     fontType: 'bold',
     fontFamily: 'Helvetica, sans-serif', 
     fontSize: '35px', 
-    color: '#FFFFFF'
+    color: '#FFFFFF',
+    textDecoration: 'none',
+    transition: '0.3s',
+    textAlign: 'left',
+    '&:hover': {
+      color: "#063970"
+    }
   },
   appBar:{
     backgroundColor: '#eab676',
@@ -33,8 +39,47 @@ const useStyles = makeStyles( () => ({
     borderRadius: '5px 5px 0px 0px',
     padding: '3px'
   },
-  
+  text:{
+    color: '#FFFFFF',
+    fontSize: '20px',
+    marginLeft: '80px',
+  },
+  schoolName:{
+    textDecoration: 'none', 
+    color: '#FFFFFF',
+    fontSize: '35px',
+    marginLeft: '80px',
+  },
+  student:{
+    textDecoration: 'none', 
+    color: '#FFFFFF',
+    fontSize: '20px',
+    transition: '0.2s',
+    '&:hover': {
+      color: "#000000",
+      backgroundColor: "#eab676"
+    }
+  },
+  links:{
+    textDecoration: 'none',
+  },
+  button:{
+    marginLeft: '80px',
+    marginTop: '20px',
+    background: '#Adadad',
+    padding: '8px 24px',
+    'border-radius': '9px',
+    color: 'black',
+    border: '3px solid #3f3f3f',
+    transition: '0.3s',
+    cursor: 'pointer',
+    '&:hover': {
+      background: "#eab676",
+      color: 'white'
+    }
+  }
 }));
+
 const CampusView = (props) => {
   const {campus, deleteCampus} = props;
   const classes = useStyles();
@@ -64,15 +109,13 @@ const CampusView = (props) => {
         </Toolbar>
       </AppBar>
 
-        <h1>{campus.name}</h1>
-        <p>
+        <h1 className={classes.text} >{campus.name}</h1>
+        <p className={classes.text}>
           {campus.description} <br/>
           {"Address: " + campus.address} <br/>
-          {"Created At: " + campus.createdAt} <br />
-          {"Updated At: " + campus.updatedAt} <br />
         </p>
-        <h2>There are no students attending this campus</h2>
-        <button onClick={() => deleteCampus(campus.id)}>
+        <h2 className={classes.text}>There are no students attending this campus</h2>
+        <button onClick={() => deleteCampus(campus.id)} className={classes.button}>
           Delete Campus
         </button>
       </div>
@@ -102,27 +145,25 @@ const CampusView = (props) => {
           </Link>
         </Toolbar>
       </AppBar>   
-        <h1>{campus.name}</h1>
-        <p>
+        <h1 className={classes.schoolName}>{campus.name}</h1>
+        <p className={classes.text}>
           {campus.description} <br/>
           {"Address: " + campus.address} <br/>
-          {"Created At: " + campus.createdAt} <br />
-          {"Updated At: " + campus.updatedAt} <br />
         </p>
-        <h3>Students Attending this Campus: </h3>
+        <h3 className={classes.text}>Students Attending this Campus: </h3>
         <ul>
         {campus.students.map( student => {
           let name = student.firstname + " " + student.lastname;
           return (
-            <li key={student.id}>
-              <Link to={`/student/${student.id}`}>
+            <li key={student.id} className={classes.text}>
+              <Link to={`/student/${student.id}`} className={classes.student}>
                 {name}
               </Link>
             </li>
           );
         })}
         </ul>
-        <button onClick={() => deleteCampus(campus.id)}>Delete Campus</button>
+        <button onClick={() => deleteCampus(campus.id)} className={classes.button}>Delete Campus</button>
       </div>
     );
   }
