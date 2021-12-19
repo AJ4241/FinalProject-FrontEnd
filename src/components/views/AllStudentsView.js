@@ -37,7 +37,7 @@ const useStyles = makeStyles( () => ({
 }));
 
 const AllStudentsView = (props) => {
-  const {students, deleteStudent} = props;
+  const {students, deleteStudent, editStudent} = props;
   const classes = useStyles();
 
   <h1>Students</h1>
@@ -105,6 +105,9 @@ const AllStudentsView = (props) => {
           <Link to={`/student/${student.id}`}>
             <h1>{name}</h1>
           </Link>
+        <Link to={`/editstudent`}>
+          <button>Edit</button>
+        </Link>
           <button onClick={() => deleteStudent(student.id)}>Delete</button>
           </div>
         );

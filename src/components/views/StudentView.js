@@ -37,7 +37,7 @@ const useStyles = makeStyles( () => ({
 }));
 
 const StudentView = (props) => {
-  const { student, deleteStudent } = props;
+  const { student, deleteStudent, editStudent } = props;
   const classes = useStyles();
 
   if (student.campus === null) {
@@ -72,6 +72,9 @@ const StudentView = (props) => {
           {"created at: " + student.createdAt} <br/>
           {"updated at: " + student.updatedAt} <br/>
         </h4>
+        <Link to={`/editstudent`}>
+          <button>Edit Student</button>
+        </Link>
         <button onClick={() => deleteStudent(student.id)}>Delete Student</button>
       </div>
     );
@@ -112,6 +115,9 @@ const StudentView = (props) => {
           {"created at: " + student.createdAt} <br/>
           {"updated at: " + student.updatedAt} <br/>
         </h4>
+        <Link to={`/editstudent`}>
+          <button>Edit Student</button>
+        </Link>
         <button onClick={() => deleteStudent(student.id)}>Delete Student</button>
       </div>
     );
