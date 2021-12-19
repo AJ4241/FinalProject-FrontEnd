@@ -20,7 +20,12 @@ const useStyles = makeStyles( () => ({
     fontFamily: 'Helvetica, sans-serif', 
     fontSize: '35px', 
     color: '#FFFFFF',
-    textAlign: 'left'
+    textDecoration: 'none',
+    transition: '0.3s',
+    textAlign: 'left',
+    '&:hover': {
+      color: "#063970"
+    }
   },
   appBar:{
     backgroundColor: '#eab676',
@@ -33,7 +38,47 @@ const useStyles = makeStyles( () => ({
     borderRadius: '5px 5px 0px 0px',
     padding: '3px'
   },
-  
+  text:{
+    textDecoration: 'none',
+    color: '#FFFFFF',
+    fontSize: '20px',
+    marginLeft: '80px',
+    '&:hover': {
+      color: "#eab676"
+    }
+  },
+  links:{
+    textDecoration: 'none',
+  },
+  studentButton:{
+    marginTop: '10px',
+    background: '#Adadad',
+    padding: '8px 24px',
+    'border-radius': '9px',
+    color: 'black',
+    border: '3px solid #3f3f3f',
+    transition: '0.3s',
+    cursor: 'pointer',
+    '&:hover': {
+      background: "#eab676",
+      color: 'white'
+    }
+  },
+  button:{
+    marginLeft: '80px',
+    marginTop: '20px',
+    background: '#Adadad',
+    padding: '8px 24px',
+    'border-radius': '9px',
+    color: 'black',
+    border: '3px solid #3f3f3f',
+    transition: '0.3s',
+    cursor: 'pointer',
+    '&:hover': {
+      background: "#eab676",
+      color: 'white'
+    }
+  }
 }));
 
 const AllStudentsView = (props) => {
@@ -66,7 +111,7 @@ const AllStudentsView = (props) => {
         </Toolbar>
       </AppBar>
 
-      <p>There are no students.</p>
+      <p className={classes.text}>There are no students.</p>
       <Link to={`/newstudent`}>
         <button>Add New Student</button>
       </Link>
@@ -101,20 +146,20 @@ const AllStudentsView = (props) => {
       {students.map((student) => {
         let name = student.firstname + " " + student.lastname;
         return (
-          <div key={student.id}>
-          <Link to={`/student/${student.id}`}>
-            <h1>{name}</h1>
+          <ul key={student.id} className={classes.text}>
+          <Link to={`/student/${student.id}`} className={classes.text}>
+            <li>{name}</li>
           </Link>
         <Link to={`/editstudent`}>
-          <button>Edit</button>
+          <button className={classes.studentButton}>Edit</button>
         </Link>
-          <button onClick={() => deleteStudent(student.id)}>Delete</button>
-          </div>
+          <button onClick={() => deleteStudent(student.id)} className={classes.studentButton}>Delete</button>
+          </ul>
         );
       }
       )}
       <Link to={`/newstudent`}>
-        <button>Add New Student</button>
+        <button className={classes.button}>Add New Student</button>
       </Link>
     </div>
   );
