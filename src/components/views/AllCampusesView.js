@@ -69,7 +69,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 const AllCampusesView = (props) => {
-  const { campuses } = props;
+  const { campuses, deleteCampuses } = props;
   const classes = useStyles();
 
   return (
@@ -111,6 +111,7 @@ const AllCampusesView = (props) => {
       ) : (
         <p className={classes.text}>There are no campuses.</p>
       )}
+      <button className={classes.button} onClick={() => deleteCampuses(campuses)}>Delete All Campuses</button>
       <Link to={`/newcampus`}>
         <button className={classes.button}>Add New Campus</button>
       </Link>
