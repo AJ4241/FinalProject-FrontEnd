@@ -46,7 +46,7 @@ const useStyles = makeStyles( () => ({
 }));
 
 const EditCampusView = (props) => {
-  const { handleChange, handleSubmit } = props;
+  const { handleChange, handleSubmit, campus } = props;
   const classes = useStyles();
 
   return (
@@ -80,19 +80,19 @@ const EditCampusView = (props) => {
         </div>
         <form style={{textAlign: 'center'}} onSubmit={(e) => handleSubmit(e)}>
           <label style= {{color:'#11153e', fontWeight: 'bold'}}>Campus Name:</label>
-          <input type="text" name="name" onChange ={(e) => handleChange(e)} defaultValue={props.campus.name} required/>
-          <br/>
-          <br/>
-
-          <label style={{color:'#11153e', fontWeight: 'bold'}}>Description: </label>
-          <input type="text" name="description" onChange={(e) => handleChange(e)} defaultValue={props.campus.description}/>
+          <input type="text" name="name" onChange ={(e) => handleChange(e)} defaultValue={campus.name} required/>
           <br/>
           <br/>
 
           <label style={{color:'#11153e', fontWeight: 'bold'}}>Address: </label>
-          <input type="text" name="address" onChange={(e) => handleChange(e)} defaultValue={props.campus.address} required/>
+          <input type="text" name="address" onChange={(e) => handleChange(e)} defaultValue={campus.address} required/>
           <br/>
           <br/>
+
+          <label style={{color:'#11153e', fontWeight: 'bold'}}>Description: </label>
+          <input type="text" name="description" onChange={(e) => handleChange(e)} defaultValue={campus.description}/>
+          <br/>
+          <br/>    
 
           <Button variant="contained" color="primary" type="submit">
             Submit

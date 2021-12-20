@@ -75,8 +75,6 @@ class EditCampusContainer extends Component {
             handleChange = {this.handleChange} 
             handleSubmit={this.handleSubmit}  
             campus={this.props.campus}
-            editCampus={this.props.editCampus}  
-            fetchCampus={this.props.fetchCampus}  
           />
         );
     }

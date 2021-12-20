@@ -45,7 +45,7 @@ const useStyles = makeStyles( () => ({
 }));
 
 const EditStudentView = (props) => {
-  const {handleChange, handleSubmit } = props;
+  const {handleChange, handleSubmit, student } = props;
   const classes = useStyles();
 
   return (
@@ -79,27 +79,27 @@ const EditStudentView = (props) => {
         </div>
         <form style={{textAlign: 'center'}} onSubmit={(e) => handleSubmit(e)}>
           <label style= {{color:'#11153e', fontWeight: 'bold'}}>First Name: </label>
-          <input type="text" name="firstname" onChange ={(e) => handleChange(e)} defaultValue={props.student.firstname} />
+          <input type="text" name="firstname" onChange ={(e) => handleChange(e)} defaultValue={student.firstname} required />
           <br/>
           <br/>
 
           <label style={{color:'#11153e', fontWeight: 'bold'}}>Last Name: </label>
-          <input type="text" name="lastname" onChange={(e) => handleChange(e)} defaultValue={props.student.lastname} />
+          <input type="text" name="lastname" onChange={(e) => handleChange(e)} defaultValue={student.lastname} required />
           <br/>
           <br/>
 
           <label style={{color:'#11153e', fontWeight: 'bold'}}>Email: </label>
-          <input type="text" name="email" onChange={(e) => handleChange(e)} defaultValue={props.student.email} />
+          <input type="text" name="email" onChange={(e) => handleChange(e)} defaultValue={student.email} required />
           <br/>
           <br/>
 
           <label style={{color:'#11153e', fontWeight: 'bold'}}>GPA: </label>
-          <input type="decimal" name="gpa" onChange={(e) => handleChange(e)} defaultValue={props.student.gpa} />
+          <input type="decimal" name="gpa" onChange={(e) => handleChange(e)} defaultValue={student.gpa} required />
           <br/>
           <br/>
 
           <label style={{color:'#11153e', fontWeight: 'bold'}}>campusId: </label>
-          <input type="text" name="campusId" onChange={(e) => handleChange(e)} defaultValue={props.student.campusId} />
+          <input type="text" name="campusId" onChange={(e) => handleChange(e)} defaultValue={student.campusId} required />
           <br/>
           <br/>
 

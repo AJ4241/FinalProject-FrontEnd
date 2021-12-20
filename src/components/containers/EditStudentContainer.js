@@ -78,9 +78,7 @@ class EditStudentContainer extends Component {
           <EditStudentView 
             handleChange = {this.handleChange} 
             handleSubmit = {this.handleSubmit}
-            student = {this.props.student}
-            editStudent = {this.props.editStudent}  
-            fetchStudent = {this.props.fetchStudent}      
+            student = {this.props.student}    
           />
         );
     }
