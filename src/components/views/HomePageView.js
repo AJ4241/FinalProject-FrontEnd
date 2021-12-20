@@ -3,6 +3,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
+import image from './homepageimage.jpg';
 
 import { Link } from 'react-router-dom';
 
@@ -39,6 +40,12 @@ const useStyles = makeStyles(theme => ({
     color: '#FFFFFF',
     fontSize: '20px',
     marginLeft: '80px'
+  },
+  image:{
+    display: 'block',
+    'margin-left': 'auto',
+    'margin-right': 'auto',
+    width: '50%'
   }
 
 }));
@@ -70,7 +77,9 @@ const HomePageView = () => {
       <div className={classes.greeting}><h1>About us</h1></div>
       <div className={classes.text}><p>
         This website is all about finding a campus, 
-        but also finding the students who attend such a school and campus. </p></div>
+        but also finding the students who attend such a school and campus. 
+      </p></div>
+      <img src={image} alt="image" className={classes.image}/> 
     </div>
   );    
 }
