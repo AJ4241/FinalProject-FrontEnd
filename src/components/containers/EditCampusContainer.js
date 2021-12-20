@@ -29,7 +29,6 @@ class EditCampusContainer extends Component {
       description: this.props.campus.description,
       redirect: false,
       redirectId: null,
-      id: this.props.campus.id,
     });
   }
 
@@ -39,7 +38,7 @@ class EditCampusContainer extends Component {
     });
   };
 
-  handleSubmit = async (event) => {
+  handleSubmit = async (event, cid) => {
     event.preventDefault();
 
     let editedCampus = {
@@ -47,7 +46,7 @@ class EditCampusContainer extends Component {
       imageUrl: this.state.imageURL,
       address: this.state.address,
       description: this.state.description,
-      id: window.location.pathname.slice(-1),
+      id: cid,
     };
 
     await this.props.editCampus(editedCampus);
@@ -59,7 +58,7 @@ class EditCampusContainer extends Component {
       imageUrl:
         "https://www.aclu.org/sites/default/files/styles/content_area_full_width/public/field_image/web17-collegecampus-socialshare-1200x628.jpg?itok=-MIytjVU",
       redirect: true,
-      redirectId: window.location.pathname.slice(-1),
+      redirectId: cid,
     });
   };
 

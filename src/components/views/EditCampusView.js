@@ -88,7 +88,7 @@ const EditCampusView = (props) => {
             Edit Campus
           </Typography>
         </div>
-        <form style={{ textAlign: "center" }} onSubmit={(e) => handleSubmit(e)}>
+        <form style={{ textAlign: "center" }} onSubmit={(e) => handleSubmit(e, campus.id)}>
           <label style={{ color: "#11153e", fontWeight: "bold" }}>
             Campus Name:
           </label>
