@@ -115,6 +115,9 @@ const CampusView = (props) => {
           {"Address: " + campus.address} <br/>
         </p>
         <h2 className={classes.text}>There are no students attending this campus</h2>
+        <Link to={`/editcampus`}>
+          <button className={classes.button}>Edit Campus</button>
+        </Link>
         <button onClick={() => deleteCampus(campus.id)} className={classes.button}>
           Delete Campus
         </button>
@@ -163,6 +166,9 @@ const CampusView = (props) => {
           );
         })}
         </ul>
+        <Link to={`/editcampus`}>
+          <button className={classes.button}>Edit Campus</button>
+        </Link>
         <button onClick={() => deleteCampus(campus.id)} className={classes.button}>Delete Campus</button>
       </div>
     );

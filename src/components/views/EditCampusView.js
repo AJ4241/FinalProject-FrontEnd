@@ -1,12 +1,15 @@
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import { Link } from "react-router-dom";
 
 import { makeStyles } from '@material-ui/core/styles';
+import { Link } from 'react-router-dom';
 
 
 const useStyles = makeStyles( () => ({
   formContainer:{  
+    marginTop: '20px',
     width: '500px',
     backgroundColor: '#f0f0f5',
     borderRadius: '5px',
@@ -14,13 +17,19 @@ const useStyles = makeStyles( () => ({
   },
   title: {
     flexGrow: 1,
-    textDecoration: 'none',
     textAlign: 'left',
-    //color: ,
     fontType: 'bold',
-    fontSize: '35px'
-  }, 
-  customizeAppBar:{
+    fontFamily: 'Helvetica, sans-serif', 
+    fontSize: '35px', 
+    color: '#FFFFFF',
+    textDecoration: 'none',
+    transition: '0.3s',
+    textAlign: 'left',
+    '&:hover': {
+      color: "#063970"
+    }
+  },
+  appBar:{
     backgroundColor: '#eab676',
     shadows: ['none'],
   },
@@ -31,7 +40,9 @@ const useStyles = makeStyles( () => ({
     borderRadius: '5px 5px 0px 0px',
     padding: '3px'
   },
-  
+  links:{
+    textDecoration: 'none',
+  }
 }));
 
 const EditCampusView = (props) => {
@@ -40,6 +51,27 @@ const EditCampusView = (props) => {
 
   return (
     <div className={classes.root}>
+      <AppBar position="static" elevation={0} className={classes.appBar}>
+        <Toolbar>
+          <Link className={classes.title} to={'/'}>
+            <Typography variant="h6" className={classes.title} color="inherit" >
+                CampusHub
+            </Typography>
+          </Link>
+          
+          <Link className={classes.links} to={'/campuses'} >
+            <Button variant="contained" color="primary" style={{marginRight: '10px'}}>
+              All Campuses
+            </Button>
+          </Link>
+
+          <Link className={classes.links} to={'/students'} >
+            <Button variant="contained" color="primary">
+              All Students
+            </Button>
+          </Link>
+        </Toolbar>
+      </AppBar>
       <div className={classes.formContainer}>
         <div className={classes.formTitle}>
           <Typography style={{fontWeight: 'bold', fontFamily: 'Courier, sans-serif', fontSize: '20px', color: '#11153e'}}>
@@ -69,13 +101,6 @@ const EditCampusView = (props) => {
           <br/>
         </form>
         </div>
-        <br/>
-        <br/>
-        <br/>
-        <Link to={`/campuses`}><button>Back to All Campuses</button></Link>
-        <br/>
-        <br/>
-        <Link to={`/`}><button>Back to Home</button></Link>
       </div>
     
   )
