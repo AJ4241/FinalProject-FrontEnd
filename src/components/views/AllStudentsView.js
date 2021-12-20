@@ -82,7 +82,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 const AllStudentsView = (props) => {
-  const { students } = props;
+  const { students, deleteStudents } = props;
   const classes = useStyles();
 
   <h1>Students</h1>;
@@ -128,6 +128,12 @@ const AllStudentsView = (props) => {
       ) : (
         <p className={classes.text}>There are no students.</p>
       )}
+      <button
+        className={classes.button}
+        onClick={() => deleteStudents(students)}
+      >
+        Delete All Students
+      </button>
       <Link to={`/newstudent`}>
         <button className={classes.button}>Add New Student</button>
       </Link>

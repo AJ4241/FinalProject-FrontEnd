@@ -1,7 +1,7 @@
 import { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { fetchAllCampusesThunk } from "../../store/thunks";
+import { fetchAllCampusesThunk, deleteCampusThunk } from "../../store/thunks";
 import { AllCampusesView } from "../views";
 
 class AllCampusesContainer extends Component {
@@ -11,7 +11,12 @@ class AllCampusesContainer extends Component {
   }
 
   render() {
-    return <AllCampusesView campuses={this.props.allCampuses} />;
+    return (
+      <AllCampusesView
+        campuses={this.props.allCampuses}
+        deleteCampuses={this.props.deleteCampuses}
+      />
+    );
   }
 }
 
@@ -26,6 +31,8 @@ const mapState = (state) => {
 const mapDispatch = (dispatch) => {
   return {
     fetchAllCampuses: () => dispatch(fetchAllCampusesThunk()),
+    deleteCampuses: (campuses) =>
+      campuses.map((campus) => dispatch(deleteCampusThunk(campus.id))),
   };
 };
 
