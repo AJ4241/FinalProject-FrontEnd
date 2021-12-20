@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchCampusThunk, deleteCampusThunk } from "../../store/thunks";
+import { fetchCampusThunk } from "../../store/thunks";
 
 import { CampusView } from "../views";
 
@@ -31,7 +31,6 @@ const mapState = (state) => {
 const mapDispatch = (dispatch) => {
   return {
     fetchCampus: (id) => dispatch(fetchCampusThunk(id)),
-    deleteCampus: (campusId) => dispatch(deleteCampusThunk(campusId)),
   };
 };
 
