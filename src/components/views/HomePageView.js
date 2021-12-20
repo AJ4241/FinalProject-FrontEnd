@@ -1,53 +1,45 @@
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import { makeStyles } from '@material-ui/core/styles';
-import image from './homepageimage.jpg';
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
+import { makeStyles } from "@material-ui/core/styles";
 
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
   title: {
     flexGrow: 1,
-    textAlign: 'left',
-    fontType: 'bold',
-    fontFamily: 'Helvetica, sans-serif', 
-    fontSize: '35px', 
-    color: '#FFFFFF'
+    textAlign: "left",
+    fontType: "bold",
+    fontFamily: "Helvetica, sans-serif",
+    fontSize: "35px",
+    color: "#FFFFFF",
   },
-  appBar:{
-    backgroundColor: '#eab676',
-    shadows: ['none'],
+  appBar: {
+    backgroundColor: "#eab676",
+    shadows: ["none"],
   },
-  greeting:{
-    display: 'flex',
-    justifyContent: 'center',
-    color: 'white',
+  greeting: {
+    display: "flex",
+    justifyContent: "center",
+    color: "white",
     width: "50%",
     margin: "auto",
   },
-  links:{
-    textDecoration: 'none',
+  links: {
+    textDecoration: "none",
   },
-  text:{
-    display: 'flex',
-    justifyContent: 'center',
-    textDecoration: 'none', 
-    color: '#FFFFFF',
-    fontSize: '20px',
-    marginLeft: '80px'
+  text: {
+    display: "flex",
+    justifyContent: "center",
+    textDecoration: "none",
+    color: "#FFFFFF",
+    fontSize: "20px",
+    marginLeft: "80px",
   },
-  image:{
-    display: 'block',
-    'margin-left': 'auto',
-    'margin-right': 'auto',
-    width: '50%'
-  }
-
 }));
 
 const HomePageView = () => {
@@ -56,35 +48,39 @@ const HomePageView = () => {
     <div className={classes.root}>
       <AppBar position="static" elevation={0} className={classes.appBar}>
         <Toolbar>
-          <Typography variant="h6" className={classes.title} color="inherit" >
+          <Typography variant="h6" className={classes.title} color="inherit">
             CampusHub
           </Typography>
 
-          <Link className={classes.links} to={'/campuses'} >
-            <Button variant="contained" color="primary" style={{marginRight: '10px'}}>
+          <Link className={classes.links} to={"/campuses"}>
+            <Button
+              variant="contained"
+              color="primary"
+              style={{ marginRight: "10px" }}
+            >
               All Campuses
             </Button>
           </Link>
 
-          <Link className={classes.links} to={'/students'} >
+          <Link className={classes.links} to={"/students"}>
             <Button variant="contained" color="primary">
               All Students
             </Button>
           </Link>
         </Toolbar>
       </AppBar>
-      
-      <div className={classes.greeting}><h1>About us</h1></div>
-      <div className={classes.text}><p>
-        This website is all about finding a campus, 
-        but also finding the students who attend such a school and campus. 
-      </p></div>
-      <img src={image} alt="image" className={classes.image}/> 
+
+      <div className={classes.greeting}>
+        <h1>About us</h1>
+      </div>
+      <div className={classes.text}>
+        <p>
+          This website is all about finding a campus, but also finding the
+          students who attend such a school and campus.{" "}
+        </p>
+      </div>
     </div>
-  );    
-}
-
-
-
+  );
+};
 
 export default HomePageView;

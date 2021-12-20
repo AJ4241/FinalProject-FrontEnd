@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import {
-  fetchStudentThunk,
-  deleteStudentThunk
-} from "../../store/thunks";
+import { fetchStudentThunk, deleteStudentThunk } from "../../store/thunks";
 import { StudentView } from "../views";
 
 class StudentContainer extends Component {
@@ -14,7 +11,7 @@ class StudentContainer extends Component {
 
   render() {
     return (
-      <StudentView 
+      <StudentView
         student={this.props.student}
         editStudent={this.props.editStudent}
         deleteStudent={this.props.deleteStudent}
