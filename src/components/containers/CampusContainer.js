@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import {
-  fetchCampusThunk,
-  deleteCampusThunk
-} from "../../store/thunks";
+import { fetchCampusThunk, deleteCampusThunk } from "../../store/thunks";
 
 import { CampusView } from "../views";
 
@@ -15,7 +12,7 @@ class CampusContainer extends Component {
 
   render() {
     return (
-      <CampusView 
+      <CampusView
         campus={this.props.campus}
         deleteCampus={this.props.deleteCampus}
       />
