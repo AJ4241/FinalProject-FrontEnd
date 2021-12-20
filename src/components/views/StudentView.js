@@ -20,7 +20,13 @@ const useStyles = makeStyles( () => ({
     fontType: 'bold',
     fontFamily: 'Helvetica, sans-serif', 
     fontSize: '35px', 
-    color: '#FFFFFF'
+    color: '#FFFFFF',
+    textDecoration: 'none',
+    transition: '0.3s',
+    textAlign: 'left',
+    '&:hover': {
+      color: "#063970"
+    }
   },
   appBar:{
     backgroundColor: '#eab676',
@@ -33,7 +39,45 @@ const useStyles = makeStyles( () => ({
     borderRadius: '5px 5px 0px 0px',
     padding: '3px'
   },
-  
+  name:{
+    textDecoration: 'none', 
+    color: '#FFFFFF',
+    fontSize: '40px',
+    marginLeft: '80px'
+  },
+  school:{
+    textDecoration: 'none', 
+    color: '#FFFFFF',
+    fontSize: '30px',
+    marginLeft: '80px',
+    '&:hover': {
+      color: "#eab676"
+    }
+  },
+  text:{
+    textDecoration: 'none', 
+    color: '#FFFFFF',
+    fontSize: '20px',
+    marginLeft: '80px'
+  },
+  links:{
+    textDecoration: 'none',
+  },
+  button:{
+    marginLeft: '80px',
+    marginTop: '20px',
+    background: '#Adadad',
+    padding: '8px 24px',
+    'border-radius': '9px',
+    color: 'black',
+    border: '3px solid #3f3f3f',
+    transition: '0.3s',
+    cursor: 'pointer',
+    '&:hover': {
+      background: "#eab676",
+      color: 'white'
+    }
+  }
 }));
 
 const StudentView = (props) => {
@@ -66,11 +110,9 @@ const StudentView = (props) => {
       </AppBar>
         <h1>{student.firstname + " " + student.lastname}</h1>
         <h2>Student is not enrolled in any campus</h2>
-        <h4>
+        <h4 className={classes.text}>
           {student.email} <br/>
           {"GPA: " + student.gpa} <br/>
-          {"created at: " + student.createdAt} <br/>
-          {"updated at: " + student.updatedAt} <br/>
         </h4>
         <Link to={`/editstudent`}>
           <button>Edit Student</button>
@@ -103,22 +145,20 @@ const StudentView = (props) => {
           </Link>
         </Toolbar>
       </AppBar>
-        <h1>{student.firstname + " " + student.lastname}</h1>
+        <h1 className={classes.name}>{student.firstname + " " + student.lastname}</h1>
         <h3 key={student.campus.id}>
-          <Link to={`/campus/${student.campus.id}`}>
+          <Link to={`/campus/${student.campus.id}`} className={classes.school}>
             {student.campus.name}
           </Link>
         </h3>
-        <h4>
+        <h4 className={classes.text}>
           {student.email} <br/>
           {"GPA: " + student.gpa} <br/>
-          {"created at: " + student.createdAt} <br/>
-          {"updated at: " + student.updatedAt} <br/>
         </h4>
         <Link to={`/editstudent`}>
-          <button>Edit Student</button>
+          <button className={classes.button}>Edit Student</button>
         </Link>
-        <button onClick={() => deleteStudent(student.id)}>Delete Student</button>
+        <button onClick={() => deleteStudent(student.id)} className={classes.button}>Delete Student</button>
       </div>
     );
   }
