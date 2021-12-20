@@ -134,7 +134,7 @@ const AllStudentsView = (props) => {
       >
         Delete All Students
       </button>
-      <Link to={`/newcampus`}>
+      <Link to={`/newstudent`}>
         <button className={classes.button}>Add New student</button>
       </Link>
     </div>
