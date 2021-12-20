@@ -31,6 +31,14 @@ const useStyles = makeStyles(theme => ({
   },
   links:{
     textDecoration: 'none',
+  },
+  text:{
+    display: 'flex',
+    justifyContent: 'center',
+    textDecoration: 'none', 
+    color: '#FFFFFF',
+    fontSize: '20px',
+    marginLeft: '80px'
   }
 
 }));
@@ -59,7 +67,10 @@ const HomePageView = () => {
         </Toolbar>
       </AppBar>
       
-      <div className={classes.greeting}><h1>Home Page</h1></div>
+      <div className={classes.greeting}><h1>About us</h1></div>
+      <div className={classes.text}><p>
+        This website is all about finding a campus, 
+        but also finding the students who attend such a school and campus. </p></div>
     </div>
   );    
 }
