@@ -43,6 +43,7 @@ const useStyles = makeStyles(() => ({
     color: "#FFFFFF",
     fontSize: "40px",
     marginLeft: "80px",
+    marginTop: '30px'
   },
   school: {
     textDecoration: "none",
@@ -58,6 +59,7 @@ const useStyles = makeStyles(() => ({
     color: "#FFFFFF",
     fontSize: "20px",
     marginLeft: "80px",
+    marginTop: '10px'
   },
   links: {
     textDecoration: "none",

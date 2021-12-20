@@ -39,15 +39,18 @@ const useStyles = makeStyles(() => ({
     padding: "3px",
   },
   text: {
+    textDecoration: "none",
     color: "#FFFFFF",
     fontSize: "20px",
     marginLeft: "80px",
+    marginTop: '10px'
   },
   schoolName: {
     textDecoration: "none",
     color: "#FFFFFF",
     fontSize: "35px",
     marginLeft: "80px",
+    marginTop: '30px'
   },
   student: {
     textDecoration: "none",
@@ -116,7 +119,7 @@ const CampusView = (props) => {
           </Toolbar>
         </AppBar>
 
-        <h1 className={classes.text}>{campus.name}</h1>
+        <h1 className={classes.schoolName}>{campus.name}</h1>
         <p className={classes.text}>
           {campus.description} <br />
           {"Address: " + campus.address} <br />
