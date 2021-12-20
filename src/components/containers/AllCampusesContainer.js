@@ -13,7 +13,7 @@ class AllCampusesContainer extends Component {
   render() {
     return (
       <AllCampusesView
-        allCampuses={this.props.allCampuses}
+        campuses={this.props.allCampuses}
       />
     );
   }

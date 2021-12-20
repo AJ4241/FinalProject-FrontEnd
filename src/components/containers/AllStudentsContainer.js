@@ -26,8 +26,6 @@ class AllStudentsContainer extends Component {
             <div>
                 <AllStudentsView 
                   students={this.props.allStudents}
-                  editStudent={this.props.editStudent}   
-                  deleteStudent={this.props.deleteStudent}   
                 />
             </div>
         )
@@ -45,7 +43,6 @@ const mapState = (state) => {
 const mapDispatch = (dispatch) => {
   return {
     fetchAllStudents: () => dispatch(fetchAllStudentsThunk()),
-    deleteStudent: (studentId) => dispatch(deleteStudentThunk(studentId)),
   };
 };
 
