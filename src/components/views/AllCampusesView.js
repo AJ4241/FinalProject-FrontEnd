@@ -7,6 +7,8 @@ import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
 
+import { FaTimes } from "react-icons/fa";
+
 const useStyles = makeStyles(() => ({
   formContainer: {
     width: "500px",
@@ -31,6 +33,7 @@ const useStyles = makeStyles(() => ({
   appBar: {
     backgroundColor: "#eab676",
     shadows: ["none"],
+    marginBottom: "20px",
   },
   formTitle: {
     backgroundColor: "#c5c8d6",
@@ -44,6 +47,14 @@ const useStyles = makeStyles(() => ({
     color: "#FFFFFF",
     fontSize: "20px",
     marginLeft: "80px",
+    "&:hover": {
+      color: "#eab676",
+    },
+  },
+  text2 :{
+    textDecoration: "none",
+    color: "#FFFFFF",
+    fontSize: "20px",
     "&:hover": {
       color: "#eab676",
     },
@@ -69,7 +80,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 const AllCampusesView = (props) => {
-  const { campuses, deleteCampuses } = props;
+  const { campuses, deleteCampus, deleteCampuses } = props;
   const classes = useStyles();
 
   return (
@@ -103,9 +114,15 @@ const AllCampusesView = (props) => {
       {campuses.length > 0 ? (
         campuses.map((campus) => (
           <ul key={campus.id} className={classes.text}>
-            <Link to={`/campus/${campus.id}`} className={classes.text}>
-              <li>{campus.name}</li>
-            </Link>
+            <li>
+              <Link to={`/campus/${campus.id}`} className={classes.text2}>
+                {campus.name}{" "}
+              </Link>
+              <FaTimes
+                className="icon-delete"
+                onClick={() => deleteCampus(campus.id)}
+              />
+            </li>
           </ul>
         ))
       ) : (

@@ -14,6 +14,7 @@ class AllCampusesContainer extends Component {
     return (
       <AllCampusesView
         campuses={this.props.allCampuses}
+        deleteCampus={this.props.deleteCampus}
         deleteCampuses={this.props.deleteCampuses}
       />
     );
@@ -31,6 +32,7 @@ const mapState = (state) => {
 const mapDispatch = (dispatch) => {
   return {
     fetchAllCampuses: () => dispatch(fetchAllCampusesThunk()),
+    deleteCampus: (id) => dispatch(deleteCampusThunk(id)),
     deleteCampuses: (campuses) =>
       campuses.map((campus) => dispatch(deleteCampusThunk(campus.id))),
   };

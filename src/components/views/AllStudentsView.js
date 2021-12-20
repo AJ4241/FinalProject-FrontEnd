@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
@@ -5,6 +6,8 @@ import Button from "@material-ui/core/Button";
 
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
+
+import { FaTimes } from "react-icons/fa";
 
 const useStyles = makeStyles(() => ({
   formContainer: {
@@ -30,6 +33,7 @@ const useStyles = makeStyles(() => ({
   appBar: {
     backgroundColor: "#eab676",
     shadows: ["none"],
+    marginBottom: "20px",
   },
   formTitle: {
     backgroundColor: "#c5c8d6",
@@ -47,22 +51,16 @@ const useStyles = makeStyles(() => ({
       color: "#eab676",
     },
   },
+  text2 :{
+    textDecoration: "none",
+    color: "#FFFFFF",
+    fontSize: "20px",
+    "&:hover": {
+      color: "#eab676",
+    },
+  },
   links: {
     textDecoration: "none",
-  },
-  studentButton: {
-    marginTop: "10px",
-    background: "#Adadad",
-    padding: "8px 24px",
-    "border-radius": "9px",
-    color: "black",
-    border: "3px solid #3f3f3f",
-    transition: "0.3s",
-    cursor: "pointer",
-    "&:hover": {
-      background: "#eab676",
-      color: "white",
-    },
   },
   button: {
     marginLeft: "80px",
@@ -82,17 +80,16 @@ const useStyles = makeStyles(() => ({
 }));
 
 const AllStudentsView = (props) => {
-  const { students, deleteStudents } = props;
+  const { students, deleteStudent, deleteStudents } = props;
   const classes = useStyles();
 
-  <h1>Students</h1>;
   return (
     <div>
       <AppBar position="static" elevation={0} className={classes.appBar}>
         <Toolbar>
           <Link className={classes.title} to={"/"}>
             <Typography variant="h6" className={classes.title} color="inherit">
-              CampusHub
+              StudentHub
             </Typography>
           </Link>
 
@@ -115,16 +112,19 @@ const AllStudentsView = (props) => {
       </AppBar>
 
       {students.length > 0 ? (
-        students.map((student) => {
-          let name = student.firstname + " " + student.lastname;
-          return (
-            <ul key={student.id} className={classes.text}>
-              <Link to={`/student/${student.id}`} className={classes.text}>
-                <li>{name}</li>
+        students.map((student) => (
+          <ul key={student.id} className={classes.text}>
+            <li>
+              <Link to={`/student/${student.id}`} className={classes.text2}>
+                {student.firstname}{" "}{student.lastname}
               </Link>
-            </ul>
-          );
-        })
+              <FaTimes
+                className="icon-delete"
+                onClick={() => deleteStudent(student.id)}
+              />
+            </li>
+          </ul>
+        ))
       ) : (
         <p className={classes.text}>There are no students.</p>
       )}
@@ -134,11 +134,15 @@ const AllStudentsView = (props) => {
       >
         Delete All Students
       </button>
-      <Link to={`/newstudent`}>
-        <button className={classes.button}>Add New Student</button>
+      <Link to={`/newcampus`}>
+        <button className={classes.button}>Add New student</button>
       </Link>
     </div>
   );
+};
+
+AllStudentsView.propTypes = {
+  allStudents: PropTypes.array.isRequired,
 };
 
 export default AllStudentsView;
