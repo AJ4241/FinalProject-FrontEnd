@@ -11,8 +11,7 @@ class EditCampusContainer extends Component {
       name: "",
       address: "",
       description: null,
-      imageUrl:
-        "https://www.aclu.org/sites/default/files/styles/content_area_full_width/public/field_image/web17-collegecampus-socialshare-1200x628.jpg?itok=-MIytjVU",
+      imageUrl: "",
       redirect: false,
       redirectId: null,
       id: null,
@@ -43,7 +42,7 @@ class EditCampusContainer extends Component {
 
     let editedCampus = {
       name: this.state.name,
-      imageUrl: this.state.imageURL,
+      imageUrl: this.state.imageUrl,
       address: this.state.address,
       description: this.state.description,
       id: cid,
@@ -55,8 +54,7 @@ class EditCampusContainer extends Component {
       name: "",
       address: null,
       description: null,
-      imageUrl:
-        "https://www.aclu.org/sites/default/files/styles/content_area_full_width/public/field_image/web17-collegecampus-socialshare-1200x628.jpg?itok=-MIytjVU",
+      imageUrl: "",
       redirect: true,
       redirectId: cid,
     });

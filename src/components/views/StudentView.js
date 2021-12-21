@@ -117,7 +117,14 @@ const StudentView = (props) => {
             </Link>
           </Toolbar>
         </AppBar>
-        <h1>{student.firstname + " " + student.lastname}</h1>
+        <h1>{student.firstname + " " + student.lastname}
+          <img
+            src = {student.imageUrl}
+            alt = "something"
+            width = "250"
+            height = "150"
+          />
+        </h1>
         <h2>Student is not enrolled in any campus</h2>
         <h4 className={classes.text}>
           {student.email} <br />
@@ -164,7 +171,13 @@ const StudentView = (props) => {
           </Toolbar>
         </AppBar>
         <h1 className={classes.name}>
-          {student.firstname + " " + student.lastname}
+          {student.firstname + " " + student.lastname} <br/>
+          <img
+            src = {student.imageUrl}
+            alt = "something"
+            width = "250"
+            height = "150"
+          />
         </h1>
         <h3 key={student.campus.id}>
           <Link to={`/campus/${student.campus.id}`} className={classes.school}>

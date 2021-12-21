@@ -122,6 +122,14 @@ const AllStudentsView = (props) => {
                 className="icon-delete"
                 onClick={() => deleteStudent(student.id)}
               />
+              <h1>
+                <img
+                  src = {student.imageUrl}
+                  alt = "campus picture"
+                  width = "100"
+                  height = "75"
+                />
+              </h1>
             </li>
           </ul>
         ))

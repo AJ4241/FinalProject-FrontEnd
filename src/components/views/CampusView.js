@@ -120,6 +120,14 @@ const CampusView = (props) => {
         </AppBar>
 
         <h1 className={classes.schoolName}>{campus.name}</h1>
+        <h1>
+          <img
+            src = {campus.imageUrl}
+            alt = "campus picture"
+            width = "200"
+            height = "150"
+          />
+        </h1>
         <p className={classes.text}>
           {campus.description} <br />
           {"Address: " + campus.address} <br />
@@ -170,7 +178,15 @@ const CampusView = (props) => {
             </Link>
           </Toolbar>
         </AppBar>
-        <h1 className={classes.schoolName}>{campus.name}</h1>
+        <h1 className={classes.schoolName}>
+          {campus.name} <br/>
+          <img
+            src = {campus.imageUrl}
+            alt = "campus picture"
+            width = "200"
+            height = "150"
+          />
+        </h1>
         <p className={classes.text}>
           {campus.description} <br />
           {"Address: " + campus.address} <br />
