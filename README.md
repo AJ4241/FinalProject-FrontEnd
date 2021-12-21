@@ -9,3 +9,7 @@ Using Node, Express, React, Redux, PostgreSQL, and Sequelize, build a RESTful fu
 * Aida Jevric
 * Shabab Khan
 * Xinyi Lin
+
+
+Libraries included: react-icons
+Install: npm i react-icons
