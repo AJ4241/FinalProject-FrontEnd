@@ -147,7 +147,6 @@ const EditStudentView = (props) => {
             name="campusId"
             onChange={(e) => handleChange(e)}
             defaultValue={student.campusId}
-            required
           />
           <br />
           <br />

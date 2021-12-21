@@ -101,7 +101,12 @@ const NewCampusView = (props) => {
           <label style={{ color: "#11153e", fontWeight: "bold" }}>
             Address:{" "}
           </label>
-          <input type="text" name="address" onChange={(e) => handleChange(e)} />
+          <input 
+            type="text"
+            name="address"
+            onChange={(e) => handleChange(e)}
+            required
+          />
           <br />
           <br />
 
